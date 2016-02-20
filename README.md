@@ -21,6 +21,7 @@ You can also, of course, download the repository and compile it by yourself. For
 Compilation recommanded with py2app, py2exe or linux equivalent. Do NOT use PyInstaller, it is highly unstable with PyQt5.
 Do not forget to include the "data" folder during compilation.
 
+## Using ChemDB
 ### First Launch
 #### New Database and importing from Excel
 If you start the software with no "sqlite" database, you will be asked to create a new one (if you plan to make it as "server", do not forget to put the file in a shared folder or the dropbox, other client will have to use the "load an existing DB" and point to the file previously created).

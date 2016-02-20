@@ -35,7 +35,7 @@ If you want to import your data from Excel, you hava to modify you sheet in orde
 | 2 | X | X    | X    | X    | X    | X    | X    | 1    |
 | 3 |  X | X    | X    | X    | X    | X    | X    | 2    |
 | ... | ... |... |... |... |... |... |... |... |
-| n |  X | X    | X    | X    | X    | X    | X    | n    |
+| n |  X | X    | X    | X    | X    | X    | X    | n+1    |
 
 It is really important that you follow this order for columns and no one is missing (even if you never used that information). Note that the first line of you sheet will be IGNORED by the software. Name, vendor, id vendor, etc... are noted here to help you modifying your Excel file. Moreover, we higly recommand that there is an absolute continuity in your file with no empty line. In addition, you have to manually complete all the ID column starting from 1 untill the last line with no interruption. Also, it is very important that the document is empty after the last line, otherwise, the software will make useless imports.
 

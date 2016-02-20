@@ -9,7 +9,7 @@ ChemDB is mostly used to be a single client with a single software wich mean you
 
 ### Instaling
 #### Easy Mode
-To install ChemDB easily just download the last release (for Mac or PC (comming soon)) directly [here](https://github.com/dedichan/ChemDB/releases).
+To install ChemDB easily just download the last release (for Mac or PC) directly [here](https://github.com/dedichan/ChemDB/releases).
 
 #### Heroic Mode
 You can also, of course, download the repository and compile it by yourself. For that, you will need Python 3 (3.4 or higher highly recommanded) and the folling dependencies :

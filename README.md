@@ -59,7 +59,7 @@ Table : chem
 
 Fields (in order) : name / vendor / vpid / cas / size / storage / room / id
 
-### Knowed bugs and future versions 
+## Knowed bugs and future versions 
 
 Bugs :
 * Using "Manual CMD" may crash the program with no loosing data

@@ -7,8 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QLabel, QMenuBar, QStatusBar, QMessageBox, QProgressDialog, QFileDialog
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QApplication, QPushButton, QLineEdit, QLabel, QMenuBar, QStatusBar, QMessageBox, QProgressDialog, QFileDialog
 
 
 import display 

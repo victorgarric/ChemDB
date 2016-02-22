@@ -2,21 +2,19 @@
 import main
 import sys
 import shutil
-import time
 import os
-from PyQt5.QtGui import QPixmap, QMovie
+from PyQt5.QtGui import QPixmap
 from PyQt5 import QtCore, QtGui
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QLabel, QMenuBar, QStatusBar, QMessageBox, QProgressDialog, QFileDialog, QSplashScreen
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QMessageBox, QFileDialog, QSplashScreen
 import cursor
 
+#Tempory windows which initiate the program, checking for database and configuration file
 class tempwin(object):
     def setupUi(self, MainWindow):
         self.hide()
 class tempapp(QMainWindow, tempwin):
     def __init__(self,parent=None):
-
+        #splash screen initialisation
         self.splash_pix = QPixmap('data/loading.jpg')
         self.splash = QSplashScreen(self.splash_pix, QtCore.Qt.WindowStaysOnTopHint)
         self.splash.setMask(self.splash_pix.mask())
@@ -25,10 +23,11 @@ class tempapp(QMainWindow, tempwin):
         super(tempapp, self).__init__(parent)
         self.setupUi(self)
     def main(self):
+        #launching program
         self.hide()
         self.launch()
     def launch(self):
-        #lecture de la configuration
+        #reading configuration
         config=open('data/configure')
         config=config.readlines()
         envir=main.principal
@@ -39,6 +38,7 @@ class tempapp(QMainWindow, tempwin):
             self.result[temp[0]]=temp[1]
 
         if self.result['db']=='' :
+            #if no databatse, asking user for creating/pointing
             h=QMessageBox(parent=self, text="No DB has been pointed. \nDo you want to create a new database or to load an existing database ?")
             h.addButton(QPushButton('Close'), QMessageBox.YesRole)
             h.addButton(QPushButton('Load an Existing DB'), QMessageBox.NoRole)
@@ -52,9 +52,11 @@ class tempapp(QMainWindow, tempwin):
             if tot==2 :
                 self.newdb()
         else :
+            #if already configured : checking if the DB still exist
             if os.path.exists(self.result['db'])==True :
                 None
             else :
+                #if db do not exist : delete configuration and reboot program
                 self.splash.hide()
                 h=QMessageBox(parent=self, text="Corrupted file or non existent : Deleting configuration")
                 self.result['db']=""
@@ -67,11 +69,13 @@ class tempapp(QMainWindow, tempwin):
                 h.exec_()
                 python = sys.executable
                 os.execl(python, python, * sys.argv)
+            #launching program if all checkpoints are ok
             self.splash.hide()
             prog=main.principal()
             prog.main()
             sys.exit(app.exec_())
     def loaddb (self) :
+        #loading db file
         fname=QFileDialog.getOpenFileName(self, 'Choose a DB', '/','SQLite Databse (*.sqlite)')[0]
         if fname=='' :
             z=QMessageBox(parent=self, text="No DB has been selected, closing program")
@@ -79,11 +83,13 @@ class tempapp(QMainWindow, tempwin):
             z.exec_()
             self.terminer()
         isvalid=cursor.verif(str(fname))
+        #checking is the DB is valid
         if isvalid==False :
             z=QMessageBox(parent=self, text="Wrong File/File Corruption. \nClosing programm")
             z.exec_()
             self.terminer()
         else :
+            #writiing new configuration
             self.result['db']=str(fname)
             new_conf=''
             for i in self.result :
@@ -99,6 +105,7 @@ class tempapp(QMainWindow, tempwin):
         sys.exit(0)
 
     def newdb (self) :
+        #new db creation
         fname=QFileDialog.getSaveFileName(self, 'Create a DB', '/','SQLite Databse (*.sqlite)')[0]
         shutil.copy('data/model.sqlite',fname)
         self.result['db']=str(fname)

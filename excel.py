@@ -2,9 +2,7 @@
 from xlwt import Workbook
 from xlwt import Borders
 import xlrd
-import sqlite3 as sql
-from PyQt5 import QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5 import QtCore
 import cursor
 class makeinvent (QtCore.QThread):
 

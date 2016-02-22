@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*-
 import sqlite3 as sql
-import os
 
-
-
-global is1
-from PyQt5 import QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QLabel, QMenuBar, QStatusBar, QMessageBox, QProgressDialog, QFileDialog
 config=open('data/configure')
 config=config.readlines()
 result={}

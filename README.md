@@ -22,6 +22,7 @@ Compilation recommended with py2app, py2exe or linux equivalent. Do NOT use PyIn
 Do not forget to include the "data" folder during compilation but "setup_osx.py" and "setup_win.py" are a base for configuration.
 
 `python3 setup_osx.py py2app`
+
 `python setup_win.py py2exe`
 
 ## Using ChemDB

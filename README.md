@@ -19,7 +19,10 @@ You can also, of course, download the repository and compile it by yourself. For
 * xlrd - Excel Reader 
 
 Compilation recommended with py2app, py2exe or linux equivalent. Do NOT use PyInstaller, it is highly unstable with PyQt5.
-Do not forget to include the "data" folder during compilation but "setup_ox.py" and "setup_win.py" are a base for configuration.
+Do not forget to include the "data" folder during compilation but "setup_osx.py" and "setup_win.py" are a base for configuration.
+
+`python3 setup_osx.py py2app'
+'python setup_win.py py2exe'
 
 ## Using ChemDB
 ### First Launch
